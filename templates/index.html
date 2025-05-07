@@ -1,0 +1,15 @@
+{% for chat in history %}
+<!-- User -->
+<div class="flex justify-end">
+    <div class="bg-blue-600 text-white px-4 py-2 rounded-md max-w-[75%] text-sm shadow-sm min-w-[64px] min-h-[40px] flex items-center justify-center">
+        {{ chat.user }}
+    </div>
+</div>
+<!-- AI -->
+<div class="flex justify-start">
+    <div class="bg-white border border-gray-300 px-5 py-4 rounded-2xl max-w-[85%] text-gray-800 text-sm shadow whitespace-pre-line leading-relaxed">
+        <strong class="text-gray-700 block mb-1">AI:</strong>
+        {{ chat.ai }}
+    </div>
+</div>
+{% endfor %}
