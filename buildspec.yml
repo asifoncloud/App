@@ -1,0 +1,21 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo "Installing dependencies"
+      - sudo apt update
+      - sudo apt install python3-pip -y
+      - pip3 install flask gunicorn
+
+  build:
+    commands:
+      - echo "Building the Flask app"
+      - mkdir -p /home/ubuntu/flaskapp
+      - cp -r * /home/ubuntu/flaskapp/
+      - cd /home/ubuntu/flaskapp
+      - nohup gunicorn -w 2 -b 0.0.0.0:5000 app:app &
+
+artifacts:
+  files:
+    - '**/*'
